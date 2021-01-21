@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Marketing</title>
+ </head>
+<body>
+        <h2>Welcome to Bank Marketing App</h2>
+        <h3>Enter customer info</h3>
+        <form action = "{{ url_for('bankclassify') }}" method="POST">
+            <table border="1" style="border-color:gray; border-collapse:collapse;" cellpadding="5" cellspacing="5">
+                <tr>
+                    <td><h4>Age</h4> 
+                    <input type="number" name="age" min="21" max="70" > </td>               
+                    <td><h4>Job</h4>
+                        <select name = "job">
+                            <option value="admin.">Administration</option>
+                            <option value="blue-collar">Blue-collar</option>
+                            <option value="entrepreneur">Entrpreneur</option>
+                            <option value="housemaid">Housemaid</option>
+                            <option value="management">Management</option>
+                            <option value="retired">Retired</option>
+                            <option value="self-employed">Self-employed</option>
+                            <option value="services">Services</option>
+                            <option value="student">Student</option>
+                            <option value="technician">Technician</option>
+                            <option value="unemployed">Unemployed</option>
+                            <option value="unknown">Unknown</option>
+                        </select>
+                    </td>
+                    <td><h4>Marital</h4>
+                        <select name = "marital">
+                            <option value="married">Married</option>
+                            <option value="single">Single</option>
+                            <option value="divorced">Divorced / Widowed</option>                          
+                        </select>
+                    </td>
+                    <td><h4>Education</h4>
+                        <select name = "education"> 
+                            <option value="primary">Primary</option>
+                            <option value="secondary">Secondary</option>
+                            <option value="tertiary">Tertiary</option>
+                            <option value="unknown">Unknown</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Default</h4>
+                        <select name = "default">
+                            <option value="yes">Yes</option> 
+                            <option value="no">No</option>
+                        </select>
+                    </td>
+                    <td><h4>Balance</h4>
+                        <input type="number" name="balance" min="0" max="1000000"> </td>              
+                    <td><h4>Housing</h4>
+                        <select name = "housing">
+                            <option value="yes">Yes</option> 
+                            <option value="no">No</option>
+                        </select>
+                    </td>
+                    <td><h4>Loan</h4>
+                        <select name = "loan">
+                            <option value="yes">Yes</option> 
+                            <option value="no">No</option>
+                        </select>
+                    </td>            
+                </tr>
+            </table>
+            <!-- <input type="hidden" id="forminput" name="forminput"  >    -->        
+            <p><input type="submit" value="Will the customer subscribe to term-loan?"></p>
+             {% if (results) %} 
+             <h3> Customer prediction: {{ results }}  </h3>
+             <p> for following features: </p>
+             <p> Age: {{age}} Job: {{job}} Marital: {{marital}} Education: {{education}} </p>
+             <p> Default: {{default}} Balance: {{balance}} Housing: {{housing}} Loan: {{loan}}</p>
+             {% endif %} 
+        </form>
+</body>
+</html>
